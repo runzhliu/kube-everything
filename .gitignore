@@ -91,3 +91,4 @@ fabric.properties
 # vendor/
 
 config
+*.yaml
