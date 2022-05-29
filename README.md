@@ -12,6 +12,8 @@
 docker pull runzhliu/kube-everything:latest
 # 挂载主机的/root/.kube目录
 cp ~/.kube/config /tmp/config && docker run -v /tmp/config:/root/.kube --net=host -it runzhliu/kube-everything:latest
+# 绑定主机的bash_history，方便搜命令
+cp ~/.kube/config /tmp/config && docker run -v /tmp/config:/root/.kube -v /root/.bash_history:/root/.bash_history --net=host -it runzhliu/kube-everything:latest
 ```
 
 ## 使用
@@ -19,3 +21,7 @@ cp ~/.kube/config /tmp/config && docker run -v /tmp/config:/root/.kube --net=hos
 ![img.png](img.png)
 
 ## TODO
+
+- [ ] 常用的kubectl插件
+- [ ] 网络排查工具和脚本
+- [ ] 提供参数更新工具版本

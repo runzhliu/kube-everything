@@ -26,8 +26,7 @@ RUN curl -Lo kubecm.tar.gz https://github.com/sunny0826/kubecm/releases/download
 RUN rm -rf /kube-everything/* && yum clean all
 
 # 自定义的alias
-ENV kc=kubectx kn=kubens k=kubectl kcm=kubecm ke="k exec -it"
-RUN echo -e 'alias kc=kubectx \n alias kn=kubens \n alias k=kubectl \n alias kcm=kubecm \n alias ke="k exec -it"' >> ~/.zshrc
+RUN echo -e 'alias kc=kubectx \n alias kn=kubens \n alias k=kubectl \n alias kcm=kubecm \n alias ke="k exec -it" \ PROMPT_COMMAND="history -a" ' >> ~/.zshrc
 
 # start zsh
 CMD [ "zsh" ]
