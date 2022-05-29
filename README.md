@@ -11,7 +11,7 @@
 ```shell
 docker pull runzhliu/kube-everything:latest
 # 挂载主机的/root/.kube目录
-cp ~/.kube/config /tmp/config && docker run -v /tmp/config:/root/.kube --net=host -it runzhliu/kube-everything:latest
+cp ~/.kube/config /tmp/config && docker run -v /tmp/config:/root/.kube/config --net=host -it runzhliu/kube-everything:latest
 ```
 
 ## 使用
