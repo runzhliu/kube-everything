@@ -25,3 +25,4 @@ cp ~/.kube/config /tmp/config && docker run -v /tmp/config:/root/.kube -v /root/
 - [ ] 常用的kubectl插件
 - [ ] 网络排查工具和脚本
 - [ ] 提供参数更新工具版本
+- [x] 安装helm
