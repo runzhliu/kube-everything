@@ -92,3 +92,5 @@ fabric.properties
 
 config
 *.yaml
+
+Makefile
