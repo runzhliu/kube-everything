@@ -26,7 +26,7 @@ RUN curl -Lo helm.tar.gz https://get.helm.sh/helm-v3.9.0-linux-amd64.tar.gz && t
 RUN set -x && OS="$(uname | tr '[:upper:]' '[:lower:]')" && ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" && KREW="krew-${OS}_${ARCH}" && curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/${KREW}.tar.gz" && tar zxvf "${KREW}.tar.gz" && ./"${KREW}" install krew iexec example doctor df-pv resource-capacity view-allocations tail
 
 # 安装kube-ps1
-RUN git clone https://github.com/jonmosco/kube-ps1.git /usr/local/
+RUN git clone https://github.com/jonmosco/kube-ps1.git /usr/local/extra
 
 # 开启kubectl自动补全
 # RUN source <(kubectl completion zsh)
@@ -35,7 +35,7 @@ RUN git clone https://github.com/jonmosco/kube-ps1.git /usr/local/
 RUN rm -rf /kube-everything/* /tmp && yum clean all
 
 # 自定义的alias
-RUN echo -e 'alias kc=kubectx \nalias kn=kubens \nalias k=kubectl \nalias kcm=kubecm \nalias ke="k exec -it" \nalias kie="k iexec" \nexport LC_CTYPE=en_US.UTF-8 \nexport PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH" \nsource /usr/local/kube-ps1/kube-ps1.sh \nPROMPT='$(kube_ps1)'$PROMPT' >> ~/.zshrc
+RUN echo -e 'alias kc=kubectx \nalias kn=kubens \nalias k=kubectl \nalias kcm=kubecm \nalias ke="k exec -it" \nalias kie="k iexec" \nexport LC_CTYPE=en_US.UTF-8 \nexport PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH" \nsource /usr/local/extra/kube-ps1/kube-ps1.sh \nPROMPT='$(kube_ps1)'$PROMPT' >> ~/.zshrc
 
 # start zsh
 CMD [ "zsh" ]
