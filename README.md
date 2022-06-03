@@ -72,7 +72,8 @@ loki	default  	1       	2022-01-27 11:37:57.209311 +0800 +0800	deployed	loki-sta
 
 ## TODO
 
-- [ ] 常用的kubectl插件
+- [x] 常用的kubectl插件
 - [ ] 网络排查工具和脚本
 - [ ] 提供参数更新工具版本
 - [x] 安装helm
+- [ ] 解决zshrc读取的问题
