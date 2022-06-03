@@ -22,6 +22,9 @@ RUN curl -Lo kubecm.tar.gz https://github.com/sunny0826/kubecm/releases/download
 # 安装helm
 RUN curl -Lo helm.tar.gz https://get.helm.sh/helm-v3.9.0-linux-amd64.tar.gz && tar -zxvf helm.tar.gz -C /usr/bin && mv /usr/bin/linux-amd64/helm /usr/bin/
 
+# 安装krew
+RUN set -x; cd "$(mktemp -d)" && OS="$(uname | tr '[:upper:]' '[:lower:]')" && ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" && KREW="krew-${OS}_${ARCH}" && curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/${KREW}.tar.gz" && tar zxvf "${KREW}.tar.gz" && ./"${KREW}" install krew
+
 # 开启kubectl自动补全
 # RUN source <(kubectl completion zsh)
 
