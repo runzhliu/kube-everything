@@ -19,6 +19,9 @@ RUN curl -Lo kubens.tar.gz https://github.com/ahmetb/kubectx/releases/download/v
 # 安装kubecm
 RUN curl -Lo kubecm.tar.gz https://github.com/sunny0826/kubecm/releases/download/v0.17.0/kubecm_0.17.0_Linux_x86_64.tar.gz && tar -zxvf kubecm.tar.gz -C /usr/bin/
 
+# 安装helm
+RUN curl -Lo helm.tar.gz https://get.helm.sh/helm-v3.9.0-linux-amd64.tar.gz && tar -zxvf helm.tar.gz -C /usr/bin && mv /usr/bin/linux-amd64/helm /usr/bin/
+
 # 开启kubectl自动补全
 # RUN source <(kubectl completion zsh)
 
@@ -26,8 +29,7 @@ RUN curl -Lo kubecm.tar.gz https://github.com/sunny0826/kubecm/releases/download
 RUN rm -rf /kube-everything/* && yum clean all
 
 # 自定义的alias
-ENV kc=kubectx kn=kubens k=kubectl kcm=kubecm ke="k exec -it"
-RUN echo -e 'alias kc=kubectx \n alias kn=kubens \n alias k=kubectl \n alias kcm=kubecm \n alias ke="k exec -it"' >> ~/.zshrc
+RUN echo -e 'alias kc=kubectx \n alias kn=kubens \n alias k=kubectl \n alias kcm=kubecm \n alias ke="k exec -it" \ PROMPT_COMMAND="history -a" ' >> ~/.zshrc
 
 # start zsh
 CMD [ "zsh" ]
