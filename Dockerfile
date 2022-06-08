@@ -6,7 +6,7 @@ WORKDIR /kube-everything
 RUN rm -rf /etc/yum.repos.d/* && curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo && sed -i -e '/mirrors.cloud.aliyuncs.com/d' -e '/mirrors.aliyuncs.com/d' /etc/yum.repos.d/CentOS-Base.repo
 
 # 安装zsh和oh-my-zsh
-RUN yum install -y zsh git vim unzip tree
+RUN yum install -y zsh git vim unzip tree lrzsz
 RUN curl -Lo zsh.zip https://github.com/ohmyzsh/ohmyzsh/archive/refs/heads/master.zip && unzip zsh.zip && mv ohmyzsh-master/ ~/.oh-my-zsh && cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 
 # 安装kubectl
@@ -36,6 +36,9 @@ RUN rm -rf /kube-everything/* /tmp && yum clean all
 
 # 自定义的alias
 RUN echo -e 'alias kc=kubectx \nalias kn=kubens \nalias k=kubectl \nalias kcm=kubecm \nalias ke="k exec -it" \nalias kie="k iexec" \nexport LC_CTYPE=en_US.UTF-8 \nexport PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH" \nsource /usr/local/kube-ps1/kube-ps1.sh \nPROMPT="$(kube_ps1)"$PROMPT' >> ~/.zshrc
+
+ADD Dockerfile .
+ADD README.md .
 
 # start zsh
 CMD [ "/bin/zsh" ]
