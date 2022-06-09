@@ -11,9 +11,9 @@
 ```shell
 docker pull runzhliu/kube-everything:latest
 # 挂载主机的/root/.kube目录
-cp ~/.kube/config /tmp/config && docker run -v /tmp/config:/root/.kube --net=host -it runzhliu/kube-everything:latest
-# 绑定主机的bash_history，方便搜命令
-cp ~/.kube/config /tmp/config && docker run -v /tmp/config:/root/.kube -v /root/.bash_history:/root/.bash_history --net=host -it runzhliu/kube-everything:latest
+cp ~/.kube/config /tmp/config && docker run -v /tmp/config:/root/.kube/config --net=host -it runzhliu/kube-everything:latest
+# 进入容器后查看help
+cat help
 ```
 
 ## 使用

@@ -40,8 +40,7 @@ RUN rm -rf /kube-everything/* /tmp && yum clean all
 # 自定义的alias
 RUN echo -e 'alias kc=kubectx \nalias kn=kubens \nalias k=kubectl \nalias kcm=kubecm \nalias ke="k exec -it" \nalias kie="k iexec" \nexport LC_CTYPE=en_US.UTF-8 \nexport PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"' >> ~/.zshrc
 
-ADD Dockerfile .
-ADD README.md .
+ADD help .
 
 # start zsh
 CMD [ "/bin/zsh" ]
