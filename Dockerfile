@@ -25,6 +25,9 @@ RUN curl -Lo helm.tar.gz https://get.helm.sh/helm-v3.9.0-linux-amd64.tar.gz && t
 # 安装krew
 RUN set -x && OS="$(uname | tr '[:upper:]' '[:lower:]')" && ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" && KREW="krew-${OS}_${ARCH}" && curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/${KREW}.tar.gz" && tar zxvf "${KREW}.tar.gz" && ./"${KREW}" install krew iexec example doctor df-pv resource-capacity view-allocations tail
 
+# 安装k9s
+RUN curl -Lo k9s.tar.gz https://github.com/derailed/k9s/releases/download/v0.25.18/k9s_Linux_x86_64.tar.gz && tar -zxvf k9s.tar.gz -C /usr/bin
+
 # 安装kube-ps1
 RUN git clone https://github.com/jonmosco/kube-ps1.git /usr/local/kube-ps1
 
