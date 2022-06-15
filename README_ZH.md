@@ -1,22 +1,22 @@
 # kube-everything
 
-The main purpose of this project is to use an image to configure the software and aliases that are usually used in the k8s development process at one time, so that no matter how I switch the environment, as long as I have Docker, I can use it smoothly.
+这个项目主要是为了用一个镜像把平时在做 k8s 开发过程中需要用到的软件和 alias 一次性配置完，这样不管我怎么切换环境，只要有 Docker 就能用起来。
 
-## Tools in Dockerfile
+## 安装的软件
 
-The details are all in [Dockerfile](Dockerfile), you can take a closer look, if you want to add something, you can add it casually.
+细节都在 [Dockerfile](Dockerfile) 了，可以仔细看看，如果想加什么的，也可以随便加。
 
-## Docker Hub Image
+## Docker Hub镜像
 
 ```shell
 docker pull runzhliu/kube-everything:latest
-# the directory mounted by /root/.kube
+# 挂载主机的/root/.kube目录
 cp ~/.kube/config /tmp/config && docker run -v /tmp/config:/root/.kube/config --net=host -it runzhliu/kube-everything:latest
-# catch the help infos
+# 进入容器后查看help
 cat help
 ```
 
-## Usage Examples
+## 使用
 
 ```shell
 ➜  kube-everything git:(main) cp ~/.kube/config /tmp/config && docker run -v /tmp/config:/root/.kube/config --net=host -it runzhliu/kube-everything:latest
@@ -48,6 +48,14 @@ elk 	default  	2       	2022-03-03 11:34:33.684772 +0800 +0800	deployed	elk-7.6.
 loki	default  	1       	2022-01-27 11:37:57.209311 +0800 +0800	deployed	loki-stack-2.1.2	v2.0.0
 ```
 
-## Re-build
+## 重新编译镜像
 
-Revise [Makefile](Makefile), then run `make`
+可以修改 [Makefile](Makefile) 然后执行 `make`
+
+## TODO
+
+- [x] 常用的kubectl插件
+- [ ] 网络排查工具和脚本
+- [ ] 提供参数更新工具版本
+- [x] 安装helm
+- [ ] 解决zshrc读取的问题
