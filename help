@@ -10,6 +10,9 @@
 8. kube-ps1
 9. k9s
 10. alias
+11. vim
+12. oh-my-zsh
+13. nerdctl
 
 For more details, please refer to Dockerfile: https://github.com/runzhliu/kube-everything/blob/main/Dockerfile
 

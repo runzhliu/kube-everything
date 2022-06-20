@@ -14,6 +14,8 @@ docker pull runzhliu/kube-everything:latest
 cp ~/.kube/config /tmp/config && docker run -v /tmp/config:/root/.kube/config --net=host -it runzhliu/kube-everything:latest
 # catch the help infos
 cat help
+# for containerd, please use nerdctl
+cp ~/.kube/config /tmp/config && nerdctl run -v /tmp/config:/root/.kube/config --net=host -it runzhliu/kube-everything:latest
 ```
 
 ## Usage Examples

@@ -42,5 +42,7 @@ RUN echo -e 'alias kc=kubectx \nalias kn=kubens \nalias k=kubectl \nalias kcm=ku
 
 ADD help .
 
+ENV SHELL /usr/bin/zsh
+
 # start zsh
 CMD [ "/bin/zsh" ]
