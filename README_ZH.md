@@ -14,6 +14,8 @@ docker pull runzhliu/kube-everything:latest
 cp ~/.kube/config /tmp/config && docker run -v /tmp/config:/root/.kube/config --net=host -it runzhliu/kube-everything:latest
 # 进入容器后查看help
 cat help
+# 如果CRI是containerd，就使用nerdctl
+cp ~/.kube/config /tmp/config && nerdctl run -v /tmp/config:/root/.kube/config --net=host -it runzhliu/kube-everything:latest
 ```
 
 ## 使用
