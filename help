@@ -6,7 +6,7 @@
 4. kubectl
 5. kubectx
 6. helm
-7. kubectl plugins: iexec example doctor df-pv resource-capacity view-allocations tail
+7. kubectl plugins: iexec example doctor df-pv resource-capacity view-allocations tail calicoctl
 8. kube-ps1
 9. k9s
 10. alias
