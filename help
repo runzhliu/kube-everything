@@ -1,0 +1,20 @@
+# kube-everything
+
+1. kubecm
+2. kubens
+3. zsh
+4. kubectl
+5. kubectx
+6. helm
+7. kubectl plugins: iexec example doctor df-pv resource-capacity view-allocations tail calicoctl
+8. kube-ps1
+9. k9s
+10. alias
+11. vim
+12. oh-my-zsh
+13. nerdctl
+14. bat
+15. fzf
+
+For more details, please refer to Dockerfile: https://github.com/runzhliu/kube-everything/blob/main/Dockerfile
+
