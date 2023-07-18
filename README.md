@@ -1,6 +1,6 @@
 # kube-everything
 
-The main purpose of this project is to use an image to configure the software and aliases that are usually used in the k8s development process at one time, so that no matter how I switch the environment, as long as I have Docker, I can use it smoothly.
+The main purpose of this project is to use an image to configure the software and aliases that are usually used in the k8s development process at one time, so that no matter how I switch the environment, as long as I have Docker, I can use it smoothly. For Chinese guide, please refer [README_ZH](./README_ZH.md).
 
 ## Tools in Dockerfile
 
