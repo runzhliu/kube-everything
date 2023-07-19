@@ -52,4 +52,4 @@ loki	default  	1       	2022-01-27 11:37:57.209311 +0800 +0800	deployed	loki-sta
 
 ## Re-build
 
-Revise [Makefile](Makefile), then run `make`
+Revise [Makefile](Makefile), then run `make`.

@@ -52,7 +52,7 @@ loki	default  	1       	2022-01-27 11:37:57.209311 +0800 +0800	deployed	loki-sta
 
 ## 重新编译镜像
 
-可以修改 [Makefile](Makefile) 然后执行 `make`
+可以修改 [Makefile](Makefile) 然后执行 `make`。
 
 ## TODO
 
