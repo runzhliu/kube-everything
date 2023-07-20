@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: kubeconfig-secret
+type: Opaque
+data:
+  kubeconfig: <base64编码的kubeconfig内容>
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kube-everything
+  labels:
+    app: kube-everything
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kube-everything
+  template:
+    metadata:
+      labels:
+        app: kube-everything
+    spec:
+      volumes:
+        - name: kubeconfig-volume
+          secret:
+            secretName: kubeconfig-secret
+      containers:
+        - name: kube-everything
+          image: runzhliu/kube-everything:latest
+          imagePullPolicy: Always
+          command: [ "/bin/bash", "-c", "sleep infinity" ]
+          volumeMounts:
+            - name: kubeconfig-volume
+              mountPath: /root/.kube/
+              readOnly: true
+---

@@ -18,7 +18,7 @@ cat help
 cp ~/.kube/config /tmp/config && nerdctl run -v /tmp/config:/root/.kube/config --net=host -it runzhliu/kube-everything:latest
 ```
 
-## 使用
+## Docker使用
 
 ```shell
 ➜  kube-everything git:(main) cp ~/.kube/config /tmp/config && docker run -v /tmp/config:/root/.kube/config --net=host -it runzhliu/kube-everything:latest
@@ -49,6 +49,10 @@ NAME	NAMESPACE	REVISION	UPDATED                               	STATUS  	CHART   
 elk 	default  	2       	2022-03-03 11:34:33.684772 +0800 +0800	deployed	elk-7.6.2
 loki	default  	1       	2022-01-27 11:37:57.209311 +0800 +0800	deployed	loki-stack-2.1.2	v2.0.0
 ```
+
+## Kubernetes部署
+
+kube-everything 可以在 Kubernetes 集群部署，可以以 Pod 或者 Deployment 或其他方式进行部署，具体可以参考 [deploy.yaml](./k8s/deploy.yaml)。
 
 ## 重新编译镜像
 

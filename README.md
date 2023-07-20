@@ -50,6 +50,10 @@ elk 	default  	2       	2022-03-03 11:34:33.684772 +0800 +0800	deployed	elk-7.6.
 loki	default  	1       	2022-01-27 11:37:57.209311 +0800 +0800	deployed	loki-stack-2.1.2	v2.0.0
 ```
 
+## Deploy on Kubernetes
+
+You could deploy the Pod or Deployment on the Kubernetes cluster, please refer to [deploy.yaml](./k8s/deploy.yaml).
+
 ## Re-build
 
 Revise [Makefile](Makefile), then run `make`.
