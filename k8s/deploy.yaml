@@ -4,7 +4,7 @@ metadata:
   name: kubeconfig-secret
 type: Opaque
 data:
-  kubeconfig: <base64编码的kubeconfig内容>
+  kubeconfig: `cat kubeconfig | base64`
 ---
 apiVersion: apps/v1
 kind: Deployment
